@@ -1,0 +1,19 @@
+# A simple Frame Relay topology, with two routers with point-to-point subinterfaces.
+
+autostart = false 
+
+[localhost]
+
+    [[7200]]
+    image = /opt/dynamips/7200.bin
+    npe = npe-400
+    ram = 256
+        
+    [[ROUTER R1]]
+    s1/0 = F1 1
+    
+    [[ROUTER R2]]
+    s1/0 = F1 2
+
+    [[FRSW F1]]
+    1:102 = 2:201
