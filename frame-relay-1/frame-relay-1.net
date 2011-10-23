@@ -1,0 +1,35 @@
+# Simple lab
+
+autostart = false 
+[localhost]
+
+    # [[7200]]
+    # image = /opt/dynamips/7200.bin
+    # npe = npe-400
+    # ram = 256
+
+    [[3640]]
+    image = /opt/dynamips/3640.bin
+    ram = 128
+
+    [[ROUTER BR1]]
+    model = 3640
+    s1/0 = FS 1
+    
+    [[router BR2]]
+    model = 3640
+    s1/0 = FS 2
+
+    [[router WAN1]]
+    model = 3640
+    s1/0 = FS 3
+
+    [[router WAN2]]
+    model = 3640
+    s1/0 = FS 4
+
+    [[FRSW FS]]
+    1:112 = 3:111
+    1:122 = 4:121
+    2:116 = 3:115
+    2:126 = 4:125
