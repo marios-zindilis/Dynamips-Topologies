@@ -1,0 +1,35 @@
+! Only non-defaults are shown here.
+!
+hostname BR2
+!
+interface Serial1/0
+ no ip address
+ no ip directed-broadcast
+ encapsulation frame-relay
+!
+interface Serial1/0.116 point-to-point
+ ip address 10.1.1.6 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 116   
+!
+interface Serial1/0.126 point-to-point
+ ip address 10.1.2.6 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 126   
+!
+! The 'no keepalive' instruction keeps the Ethernet interface 
+! in Up/Up status,  even though there is nothing connected to it.
+!
+interface Ethernet2/0
+ ip address 10.12.1.1 255.255.255.0
+ no ip directed-broadcast
+ no keepalive
+!
+router eigrp 1
+ network 10.1.1.4 0.0.0.3
+ network 10.1.2.4 0.0.0.3
+ network 10.12.1.0 0.0.0.255
+ no auto-summary
+!
+end
+
