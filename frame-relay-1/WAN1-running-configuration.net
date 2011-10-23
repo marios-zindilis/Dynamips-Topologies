@@ -1,0 +1,20 @@
+! Only the non-defaults are shown here:
+!
+hostname WAN1
+!
+interface Serial1/0
+ no ip address
+ no ip directed-broadcast
+ encapsulation frame-relay
+!
+interface Serial1/0.111 point-to-point
+ ip address 10.1.1.1 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 111   
+!
+interface Serial1/0.115 point-to-point
+ ip address 10.1.1.5 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 115   
+!
+end
