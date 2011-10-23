@@ -1,0 +1,20 @@
+! Only the non-defaults are shown here:
+!
+hostname BR2
+!
+interface Serial1/0
+ no ip address
+ no ip directed-broadcast
+ encapsulation frame-relay
+!
+interface Serial1/0.116 point-to-point
+ ip address 10.1.1.6 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 116   
+!
+interface Serial1/0.126 point-to-point
+ ip address 10.1.2.6 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 126   
+!
+end
