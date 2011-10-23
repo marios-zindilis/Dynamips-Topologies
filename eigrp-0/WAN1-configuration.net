@@ -1,0 +1,42 @@
+! Only the non-defaults are shown here.
+!
+hostname WAN1
+!
+interface Serial1/0
+ no ip address
+ no ip directed-broadcast
+ encapsulation frame-relay
+!
+interface Serial1/0.111 point-to-point
+ ip address 10.1.1.1 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 111   
+!
+interface Serial1/0.115 point-to-point
+ ip address 10.1.1.5 255.255.255.252
+ no ip directed-broadcast
+ frame-relay interface-dlci 115   
+!
+interface Serial1/1
+ description Link to WAN2 Ser1/1
+ ip address 10.9.1.1 255.255.255.252
+ no ip directed-broadcast
+!
+interface Serial1/2
+ ip address 10.9.1.5 255.255.255.252
+ no ip directed-broadcast
+!         
+interface Serial1/3
+ ip address 10.9.1.9 255.255.255.252
+ no ip directed-broadcast
+!
+router eigrp 1
+ network 10.1.1.0 0.0.0.3
+ network 10.1.1.4 0.0.0.3
+ network 10.9.1.0 0.0.0.3
+ network 10.9.1.4 0.0.0.3
+ network 10.9.1.8 0.0.0.3
+ no auto-summary
+!
+end
+
