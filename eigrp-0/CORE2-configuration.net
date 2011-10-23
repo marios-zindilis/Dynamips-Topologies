@@ -1,0 +1,24 @@
+! Only non-defaults are shown here.
+!
+hostname CORE2
+!
+interface Serial1/1
+ ip address 10.9.1.22 255.255.255.252
+ serial restart-delay 0
+!
+interface Serial1/2
+ ip address 10.9.1.18 255.255.255.252
+ serial restart-delay 0
+!
+interface Serial1/3
+ ip address 10.9.1.10 255.255.255.252
+ serial restart-delay 0
+!
+router eigrp 1
+ network 10.9.1.8 0.0.0.3
+ network 10.9.1.16 0.0.0.3
+ network 10.9.1.20 0.0.0.3
+ no auto-summary
+!
+end
+
