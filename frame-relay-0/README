@@ -1,1 +1,4 @@
-This is a simple Frame Relay topology, with two routers and point-to-point subinterfaces.
+This is a simple Frame Relay topology, with two
+routers and point-to-point subinterfaces. See:
+http://zindilis.com/docs/Τοπολογίες_Dynamips/Frame_Relay_0
+(description in Greek).
